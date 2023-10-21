@@ -1,0 +1,21 @@
+<meta charset="UTF-8">
+<script>
+    // c) Elaborar um programa para uma loja, o qual leia o preço de um produto e informe as opções de pagamento da loja. Calcule e informe o valor para pagamento à vista com 10 % de desconto e o valor em 3x.
+
+    //lê os dados
+    var preco = Number(prompt("Preço do Produto R$:"));
+
+    //calcula os dados
+    const DESCONTO = preco * 0.1;
+    var aVista = preco - DESCONTO;
+    var parcelado = preco / 3;
+
+    //exibe os dados
+    alert(
+        "Preço R$" + preco.toFixed(2) +
+        "\nÀ Vista R$" + aVista.toFixed(2) +
+        "\n3x de R$" + parcelado.toFixed(2)
+        );
+    
+
+</script>
