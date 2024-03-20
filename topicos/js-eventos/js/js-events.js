@@ -1,0 +1,1 @@
+document.querySelector("select[name='select-option']").addEventListener("change", (e) => alert(e.target.value))
