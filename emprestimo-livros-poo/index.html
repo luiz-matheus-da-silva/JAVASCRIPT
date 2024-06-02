@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Empréstimo de Livros</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <!-- título -->
+    <header id="title" class="bg-dark py-3 mb-4">
+      <div class="container">
+        <h1 class="text-center text-warning">
+          Sistema de Gestão de Biblioteca
+        </h1>
+        <p class="text-center text-white">
+          Desenvolvido por
+          <a href="#" class="text-warning">Luiz Matheus da Silva</a>
+        </p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <!-- cadastro de livros -->
+        <div class="col-lg-6">
+          <div class="card mb-4">
+            <div class="card-header bg-dark text-white">
+              <h2 class="h4">Cadastro de Livros</h2>
+            </div>
+            <div class="card-body">
+              <!-- formulário livros -->
+              <form id="formBook">
+                <div class="mb-3">
+                  <label for="inputTitle" class="form-label">Título:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputTitle"
+                    placeholder="Insira o título do livro"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="inputAuthor" class="form-label">Autor:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputAuthor"
+                    placeholder="Insira o nome do autor do livro"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="inputYear" class="form-label"
+                    >Ano de Publicação:</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="inputYear"
+                    placeholder="Insira o ano em que o livro foi publicado"
+                    required
+                  />
+                </div>
+                <button
+                  type="button"
+                  class="btn btn-primary w-100"
+                  id="btnCreateBook"
+                >
+                  Adicionar Livro
+                </button>
+              </form>
+              <!-- mensagens de alerta -->
+              <div
+                class="alert alert-success d-none mt-2"
+                role="alert"
+                id="successAlertBook"
+              ></div>
+              <div
+                class="alert alert-danger d-none mt-2"
+                role="alert"
+                id="errorAlertBook"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <!-- lista de livros -->
+        <div class="col-lg-6">
+          <div class="card mb-4">
+            <div class="card-header bg-dark text-white">
+              <h2 class="h4">Lista de Livros</h2>
+            </div>
+            <div class="card-body">
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="searchBooks"
+                  placeholder="Pesquisar livros"
+                />
+              </div>
+              <table
+                class="table table-striped table-responsive text-center table-bordered"
+              >
+                <thead>
+                  <tr>
+                    <th scope="col">Título</th>
+                    <th scope="col">Autor</th>
+                    <th scope="col">Ano de Publicação</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="tableBodyBooks"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- cadastro de clientes -->
+        <div class="col-lg-6">
+          <div class="card mb-4">
+            <div class="card-header bg-dark text-white">
+              <h2 class="h4">Cadastro de Clientes</h2>
+            </div>
+            <div class="card-body">
+              <!-- formulário clientes -->
+              <form id="formCustomer">
+                <div class="mb-3">
+                  <label for="inputName" class="form-label">Nome:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputName"
+                    placeholder="Insira o nome do cliente"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="inputPhone" class="form-label">Telefone:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputPhone"
+                    placeholder="Insira o telefone do cliente"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="inputEmail" class="form-label">E-mail:</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="inputEmail"
+                    placeholder="Insira o e-mail do cliente"
+                    required
+                  />
+                </div>
+                <button
+                  id="btnCreateCustomer"
+                  type="button"
+                  class="btn btn-primary w-100"
+                >
+                  Adicionar Cliente
+                </button>
+              </form>
+              <!-- mensagens de alerta -->
+              <div
+                class="alert alert-success d-none mt-2"
+                role="alert"
+                id="successAlertCustomer"
+              ></div>
+              <div
+                class="alert alert-danger d-none mt-2"
+                role="alert"
+                id="errorAlertCustomer"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <!-- lista de clientes -->
+        <div class="col-lg-6">
+          <div class="card mb-4">
+            <div class="card-header bg-dark text-white">
+              <h2 class="h4">Lista de Clientes</h2>
+            </div>
+            <div class="card-body">
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="searchCustomers"
+                  placeholder="Pesquisar clientes"
+                />
+              </div>
+              <table
+                class="table table-striped table-responsive text-center table-bordered"
+              >
+                <thead>
+                  <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Telefone</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="tableBodyCustomers"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <!-- empréstimos -->
+        <div class="col-lg-6">
+          <div class="card mb-4">
+            <div class="card-header bg-success text-white">
+              <h2 class="h4">Empréstimos</h2>
+            </div>
+            <div class="card-body">
+              <!-- formulário de empréstimos -->
+              <form id="formLoan">
+                <div class="mb-3">
+                  <label for="selectCustomer" class="form-label"
+                    >Cliente:</label
+                  >
+                  <select class="form-select" id="selectCustomer">
+                    <option selected>Selecione um cliente</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="selectBook" class="form-label">Livro:</label>
+                  <select class="form-select" id="selectBook">
+                    <option selected>Selecione um livro</option>
+                  </select>
+                </div>
+                <button
+                  id="btnCreateLoan"
+                  type="button"
+                  class="btn btn-success w-100"
+                >
+                  Efetuar Empréstimo
+                </button>
+              </form>
+              <!-- mensagens de alerta -->
+              <div
+                class="alert alert-success d-none mt-2"
+                role="alert"
+                id="successAlertLoan"
+              ></div>
+              <div
+                class="alert alert-danger d-none mt-2"
+                role="alert"
+                id="errorAlertLoan"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <!-- lista de empréstimos -->
+        <div class="col-lg-6">
+          <div class="card mb-4">
+            <div class="card-header bg-success text-white">
+              <h2 class="h4">Lista de Empréstimos</h2>
+            </div>
+            <div class="card-body">
+              <table
+                class="table table-striped table-responsive text-center table-bordered overflor-scroll"
+              >
+                <thead>
+                  <tr>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Livro</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="tableBodyLoans"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/Book.js"></script>
+    <script src="assets/js/Customer.js"></script>
+    <script src="assets/js/Loan.js"></script>
+    <script src="assets/js/bootstrap.bundle.js"></script>
+  </body>
+</html>
